@@ -5,6 +5,7 @@ import Product from "./pages/Product.jsx";
 import Pricing from "./pages/Pricing.jsx";
 import PageNotFound from "./pages/PageNotFound.jsx";
 import Login from "./pages/Login.jsx";
+import AppLayout from "./pages/AppLayout.jsx";
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/product" element={<Product />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/app" element={<AppLayout />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
