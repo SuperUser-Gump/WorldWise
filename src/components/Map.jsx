@@ -1,22 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Map.module.css";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import { useCities } from "../../contexts/CitiesContext.jsx";
 
 function Map() {
   const navigate = useNavigate();
   const { cities } = useCities();
-  const [mapPosition, setMapPosition] = useState([40, 0]);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const lat = searchParams.get("lat");
-  const lng = searchParams.get("lng");
+  const [mapPosition, setMapPosition] = useState([0, 0]);
+  const [searchParams] = useSearchParams();
+  const mapLat = searchParams.get("lat") || 0;
+  const mapLng = searchParams.get("lng") || 0;
+
+  useEffect(
+    function () {
+      if (mapLat && mapLng) {
+        setMapPosition([mapLat, mapLng]);
+      }
+    },
+    [mapLat, mapLng]
+  );
 
   return (
     <div className={styles.mapContainer}>
       <MapContainer
-        center={[51.505, -0.09]}
-        zoom={13}
+        center={[mapLat, mapLng]}
+        zoom={6}
         scrollWheelZoom={false}
         className={styles.map}
       >
@@ -34,10 +43,17 @@ function Map() {
             </Popup>
           </Marker>
         ))}
+        <ChangeCenter position={mapPosition} />
       </MapContainer>
       ))
     </div>
   );
+}
+
+function ChangeCenter({ position }) {
+  const map = useMap();
+  map.setView(position);
+  return null;
 }
 
 export default Map;
