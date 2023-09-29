@@ -36,9 +36,6 @@ function Map() {
         ))}
       </MapContainer>
       ))
-      <button onClick={() => setSearchParams({ lat: 23, lng: 50 })}>
-        Change pos
-      </button>
     </div>
   );
 }
