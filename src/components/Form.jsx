@@ -35,6 +35,7 @@ function Form() {
   useEffect(
     function () {
       if (!lat && !lng) return;
+
       async function fetchCityData() {
         try {
           setIsLoadingGeocoding(true);
@@ -59,10 +60,26 @@ function Form() {
           setIsLoadingGeocoding(false);
         }
       }
+
       fetchCityData();
     },
     [lat, lng]
   );
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!cityName || !date) return;
+
+    const newCity = {
+      cityName,
+      country,
+      emoji,
+      date,
+      notes,
+      position: { lat, lng },
+    };
+  }
 
   if (isLoadingGeocoding) return <Spinner />;
   if (!lat && !lng)
@@ -70,7 +87,7 @@ function Form() {
   if (geocodingError) return <Message message={geocodingError} />;
 
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
