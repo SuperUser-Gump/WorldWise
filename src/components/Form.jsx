@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useUrlPosition } from "../../hooks/useUrlPosition.js";
 import Message from "./Message.jsx";
 import Spinner from "./Spinner.jsx";
+import BackButton from "./BackButton.jsx";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -98,15 +99,7 @@ function Form() {
 
       <div className={styles.buttons}>
         <Button type="primary">Add</Button>
-        <Button
-          type="back"
-          onClick={(e) => {
-            e.preventDefault();
-            navigate(-1);
-          }}
-        >
-          &larr; Back
-        </Button>
+        <BackButton />
       </div>
     </form>
   );
