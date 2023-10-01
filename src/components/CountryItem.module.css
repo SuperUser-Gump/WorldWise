@@ -13,7 +13,7 @@
   border-left: 5px solid var(--color-brand--1);
 }
 
-.countryItem span:first-child {
-  font-size: 3rem;
-  line-height: 1;
+.flag {
+  max-height: 3rem;
+  height: 3rem;
 }
