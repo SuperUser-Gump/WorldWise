@@ -18,11 +18,7 @@ function Map() {
   const navigate = useNavigate();
   const { cities } = useLocalCities();
   const [mapPosition, setMapPosition] = useState([0, 0]);
-  const {
-    isLoading: isLoadingPosition,
-    position: geolocationPosition,
-    getPosition,
-  } = useGeolocation();
+  const { position: geolocationPosition, getPosition } = useGeolocation();
 
   const [mapLat, mapLng] = useUrlPosition();
 
@@ -46,15 +42,13 @@ function Map() {
 
   return (
     <div className={styles.mapContainer}>
-      {!geolocationPosition && (
-        <Button type="position" onClick={getPosition}>
-          {isLoadingPosition ? "Loading..." : "Use your position"}
-        </Button>
-      )}
+      <Button type="position" onClick={getPosition}>
+        Use your position
+      </Button>
       <MapContainer
         center={[mapLat, mapLng]}
         zoom={6}
-        scrollWheelZoom={false}
+        scrollWheelZoom={true}
         className={styles.map}
       >
         <TileLayer
