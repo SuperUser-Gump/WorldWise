@@ -1,7 +1,5 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-
-import { CitiesProvider } from "../contexts/CitiesContext.jsx";
 import { AuthProvider } from "../contexts/FakeAuthContext.jsx";
 import ProtectedRoute from "./pages/ProtectedRoute.jsx";
 import AppLayout from "./pages/AppLayout.jsx";
@@ -10,6 +8,7 @@ import CountryList from "./components/CountryList.jsx";
 import City from "./components/City.jsx";
 import Form from "./components/Form.jsx";
 import SpinnerFullPage from "./components/SpinnerFullPage.jsx";
+import { LocalCitiesProvider } from "../contexts/LocalCitiesContext.jsx";
 
 const Homepage = lazy(() => import("./pages/Homepage.jsx"));
 const Product = lazy(() => import("./pages/Product.jsx"));
@@ -20,7 +19,7 @@ const Login = lazy(() => import("./pages/Login.jsx"));
 function App() {
   return (
     <AuthProvider>
-      <CitiesProvider>
+      <LocalCitiesProvider>
         <BrowserRouter>
           <Suspense fallback={<SpinnerFullPage />}>
             <Routes>
@@ -46,7 +45,7 @@ function App() {
             </Routes>
           </Suspense>
         </BrowserRouter>
-      </CitiesProvider>
+      </LocalCitiesProvider>
     </AuthProvider>
   );
 }

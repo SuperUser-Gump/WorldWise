@@ -9,14 +9,14 @@ import Spinner from "./Spinner.jsx";
 import BackButton from "./BackButton.jsx";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useCities } from "../../contexts/CitiesContext.jsx";
 import Flag from "./Flag.jsx";
+import { useLocalCities } from "../../contexts/LocalCitiesContext.jsx";
 
 const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
 function Form() {
   const [lat, lng] = useUrlPosition();
-  const { createCity, isLoading } = useCities();
+  const { createCity } = useLocalCities();
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
 
   const navigate = useNavigate();
@@ -85,10 +85,7 @@ function Form() {
   if (geocodingError) return <Message message={geocodingError} />;
 
   return (
-    <form
-      className={`${styles.form} ${isLoading ? styles.loading : ""}`}
-      onSubmit={handleSubmit}
-    >
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input

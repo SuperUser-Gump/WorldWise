@@ -9,14 +9,14 @@ import {
   useMap,
   useMapEvents,
 } from "react-leaflet";
-import { useCities } from "../../contexts/CitiesContext.jsx";
 import { useGeolocation } from "../../hooks/useGeolocation.js";
 import Button from "./Button.jsx";
 import { useUrlPosition } from "../../hooks/useUrlPosition.js";
+import { useLocalCities } from "../../contexts/LocalCitiesContext.jsx";
 
 function Map() {
   const navigate = useNavigate();
-  const { cities } = useCities();
+  const { cities } = useLocalCities();
   const [mapPosition, setMapPosition] = useState([0, 0]);
   const {
     isLoading: isLoadingPosition,
