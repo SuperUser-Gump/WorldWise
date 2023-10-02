@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./CityItem.module.css";
 import { Link } from "react-router-dom";
-import { useCities } from "../../contexts/CitiesContext.jsx";
 import Flag from "./Flag.jsx";
+import { useLocalCities } from "../../contexts/LocalCitiesContext.jsx";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -12,7 +12,7 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function CityItem({ city }) {
-  const { currentCity, deleteCity } = useCities();
+  const { currentCity, deleteCity } = useLocalCities();
   const { cityName, countryCode, date, id, position } = city;
 
   async function handleClick(e) {
