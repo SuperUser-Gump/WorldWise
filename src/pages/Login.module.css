@@ -29,12 +29,14 @@
   width: 100%;
 }
 
-@media screen and (max-width: 64em) {
+@media (max-width: 64em) {
   .login {
     margin: 0;
     height: 100vh;
   }
+}
 
+@media (max-width: 48em) {
   .form {
     width: 100%;
   }
