@@ -67,3 +67,15 @@ input:focus {
   padding: 1rem 3rem;
   border-radius: 5px;
 }
+
+@media (max-width: 64em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media (max-width: 48em) {
+  html {
+    font-size: 50%;
+  }
+}
