@@ -8,6 +8,7 @@ import {
   TileLayer,
   useMap,
   useMapEvents,
+  ZoomControl,
 } from "react-leaflet";
 import { useGeolocation } from "../../hooks/useGeolocation.js";
 import Button from "./Button.jsx";
@@ -48,6 +49,7 @@ function Map() {
       <MapContainer
         center={[mapLat, mapLng]}
         zoom={6}
+        zoomControl={false}
         scrollWheelZoom={true}
         className={styles.map}
       >
@@ -55,6 +57,7 @@ function Map() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
+        <ZoomControl position="bottomright" />
         {cities.map((city) => (
           <Marker
             position={[city.position.lat, city.position.lng]}
