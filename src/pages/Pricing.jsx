@@ -18,7 +18,7 @@ export default function Product() {
             adventures.
           </p>
         </div>
-        <img src="img-2.jpg" alt="overview of a large city with skyscrapers" />
+        <img src="img-2.webp" alt="overview of a large city with skyscrapers" />
       </section>
     </main>
   );
