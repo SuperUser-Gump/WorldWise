@@ -1,4 +1,4 @@
-# WorldWise - A React app to helps you track your travels and create a visual record of your adventures.
+# WorldWise - A React app to helps you track your travels and create a visual record of your adventures
 
 This project is a part of [The Ultimate React Course 2023: React, Redux & More](https://www.udemy.com/course/the-ultimate-react-course/) by [Jonas Schmedtmann](https://github.com/jonasschmedtmann). The website's design and structure were provided as part of the course curriculum, and I did not design the website from scratch. The primary purpose of this project is to practice and apply the concepts learned during the course.
 
@@ -61,13 +61,13 @@ npm install -g vite
 Once you have Node.js and Vite installed, you can clone the worldwise repository to your local machine:
 
 ```
-git clone https://github.com/SuperUser-Gump/worldwise.git
+git clone https://github.com/SuperUser-Gump/WorldWise.git
 ```
 
 Navigate to the worldwise directory and install the dependencies:
 
 ```
-cd worldwise
+cd WorldWise
 npm install
 ```
 
