@@ -30,21 +30,21 @@ Stay tuned for updates!
 * **Tab component:** WorldWise has a tab component that displays a list of cities and correspond countries that user added. This allows users to quickly switch between different views of their list.
 
 ## Screenshots
-![homepage](public/screenshots/homepage.png)
+![homepage](public/screenshots/homepage.webp)
 
-![pricing-page](public/screenshots/pricing-page.png)
+![pricing-page](public/screenshots/pricing-page.webp)
 
-![product-page](public/screenshots/product-page.png)
+![product-page](public/screenshots/product-page.webp)
 
-![login-page](public/screenshots/login-page.png)
+![login-page](public/screenshots/login-page.webp)
 
-![app-page](public/screenshots/app-page.png)
+![app-page](public/screenshots/app-page.webp)
 
-![add-city](public/screenshots/add-city.png)
+![add-city](public/screenshots/add-city.webp)
 
-![city-list](public/screenshots/city-list.png)
+![city-list](public/screenshots/city-list.webp)
 
-![country-list](public/screenshots/country-list.png)
+![country-list](public/screenshots/country-list.webp)
 
 ## Getting Started
 
