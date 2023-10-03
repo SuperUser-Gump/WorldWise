@@ -24,3 +24,18 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
+button {
+  width: 100%;
+}
+
+@media screen and (max-width: 64em) {
+  .login {
+    margin: 0;
+    height: 100vh;
+  }
+
+  .form {
+    width: 100%;
+  }
+}
