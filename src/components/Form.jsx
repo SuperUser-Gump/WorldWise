@@ -92,6 +92,7 @@ function Form() {
           id="cityName"
           onChange={(e) => setCityName(e.target.value)}
           value={cityName}
+          readOnly
         />
         <span className={styles.flag}>
           <Flag countryCode={countryCode} />
@@ -105,6 +106,7 @@ function Form() {
           onChange={(date) => setDate(date)}
           selected={date}
           dateFormat="dd/MM/yyyy"
+          required
         />
       </div>
 
@@ -114,6 +116,7 @@ function Form() {
           id="notes"
           onChange={(e) => setNotes(e.target.value)}
           value={notes}
+          maxLength="200"
         />
       </div>
 
