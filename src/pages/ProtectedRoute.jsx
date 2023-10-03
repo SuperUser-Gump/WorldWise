@@ -8,7 +8,8 @@ function ProtectedRoute({ children }) {
 
   useEffect(
     function () {
-      if (!isAuthenticated) {
+      const storedAuthState = localStorage.getItem("user");
+      if (!isAuthenticated && !storedAuthState) {
         navigate("/");
       }
     },
