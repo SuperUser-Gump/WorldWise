@@ -2,11 +2,13 @@ import React from "react";
 import styles from "./Sidebar.module.css";
 import Logo from "./Logo.jsx";
 import AppNav from "./AppNav.jsx";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Footer from "./Footer.jsx";
 import { HiXMark } from "react-icons/hi2";
 
 function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
+  const navigate = useNavigate();
+
   return (
     <aside className={`${isSidebarOpen ? styles["sidebar-open"] : ""}`}>
       <div className={styles.sidebar}>
@@ -16,7 +18,10 @@ function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
         <Footer />
         <button
           className={styles["sidebar-icon"]}
-          onClick={() => setIsSidebarOpen(false)}
+          onClick={() => {
+            setIsSidebarOpen(false);
+            navigate("/app/cities");
+          }}
         >
           <HiXMark />
         </button>

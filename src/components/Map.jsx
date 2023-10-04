@@ -15,6 +15,7 @@ import Button from "./Button.jsx";
 import { useUrlPosition } from "../../hooks/useUrlPosition.js";
 import { useLocalCities } from "../../contexts/LocalCitiesContext.jsx";
 import Sidebar from "./Sidebar.jsx";
+import Flag from "./Flag.jsx";
 
 function Map() {
   const navigate = useNavigate();
@@ -64,14 +65,17 @@ function Map() {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
           />
-          <ZoomControl position="bottomright" />
+          <ZoomControl position="topright" />
           {cities.map((city) => (
             <Marker
               position={[city.position.lat, city.position.lng]}
               key={city.id}
             >
               <Popup>
-                <span>{city.emoji}</span> <span>{city.cityName}</span>
+                <span style={{ maxHeight: "2.8rem", height: "2.8rem" }}>
+                  <Flag countryCode={city.countryCode} />
+                </span>
+                <span>{city.cityName}</span>
               </Popup>
             </Marker>
           ))}

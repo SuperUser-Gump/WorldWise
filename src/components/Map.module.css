@@ -5,6 +5,27 @@
   position: relative;
 }
 
+@media (max-width: 90em) {
+  .mapContainer button{
+    bottom: 76%;
+    left: 85%;
+  }
+}
+
+@media (max-width: 64em) {
+  .mapContainer button{
+    bottom: 80%;
+    left: 82%;
+  }
+}
+
+@media (max-width: 48em) {
+  .mapContainer button {
+    bottom: 75%;
+    left: 50%;
+  }
+}
+
 .map {
   height: 100%;
 }
