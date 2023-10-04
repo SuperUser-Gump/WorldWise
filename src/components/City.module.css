@@ -32,8 +32,8 @@
 }
 
 .city h3 span {
-  font-size: 3.2rem;
-  line-height: 1;
+  max-height: 3.2rem;
+  height: 3.2rem;
 }
 
 .city p {
@@ -48,4 +48,9 @@
 
 .city::-webkit-scrollbar {
   display: none;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
 }

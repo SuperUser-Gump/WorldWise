@@ -21,6 +21,17 @@ function LocalCitiesProvider({ children }) {
     setCities((city) => city.filter((city) => city.id !== id));
   }
 
+  function updateCity(id, updatedData) {
+    setCities((city) =>
+      city.map((cityItem) => {
+        if (cityItem.id === id) {
+          return { ...cityItem, ...updatedData };
+        }
+        return cityItem;
+      })
+    );
+  }
+
   return (
     <LocalCitiesContext.Provider
       value={{
@@ -29,6 +40,7 @@ function LocalCitiesProvider({ children }) {
         getCity,
         createCity,
         deleteCity,
+        updateCity,
       }}
     >
       {children}

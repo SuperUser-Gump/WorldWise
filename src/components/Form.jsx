@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import styles from "./Form.module.css";
 import Button from "./Button.jsx";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useUrlPosition } from "../../hooks/useUrlPosition.js";
 import Message from "./Message.jsx";
 import Spinner from "./Spinner.jsx";
@@ -16,7 +16,7 @@ const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
 function Form() {
   const [lat, lng] = useUrlPosition();
-  const { createCity } = useLocalCities();
+  const { createCity, getCity, currentCity, updateCity } = useLocalCities();
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
 
   const navigate = useNavigate();
@@ -27,9 +27,27 @@ function Form() {
   const [countryCode, setCountryCode] = useState("");
   const [geocodingError, setGeocodingError] = useState("");
 
+  const [searchParams] = useSearchParams();
+  const isInput = searchParams.get("mode") === "input";
+  const isEdit = searchParams.get("mode") === "edit";
+  const id = searchParams.get("id");
+
+  if (!isInput && !isEdit) throw new Error("Invalid mode");
+
+  function resetForm() {
+    setCityName("");
+    setCountry("");
+    setCountryCode("");
+    setDate(new Date());
+    setNotes("");
+  }
+
   useEffect(
     function () {
+      if (!isInput) return;
       if (!lat && !lng) return;
+
+      resetForm();
 
       async function fetchCityData() {
         try {
@@ -58,10 +76,27 @@ function Form() {
 
       fetchCityData();
     },
-    [lat, lng]
+    [isInput, lat, lng]
   );
 
-  async function handleSubmit(e) {
+  useEffect(
+    function () {
+      if (!isEdit) return;
+      if (!id) return;
+
+      getCity(id);
+
+      const { cityName, country, countryCode, date, notes } = currentCity;
+      setCityName(cityName);
+      setCountry(country);
+      setCountryCode(countryCode);
+      setDate(new Date(date));
+      setNotes(notes);
+    },
+    [isEdit, id, getCity, currentCity]
+  );
+
+  function handleSubmit(e) {
     e.preventDefault();
 
     if (!cityName || !date) return;
@@ -75,7 +110,14 @@ function Form() {
       position: { lat, lng },
     };
 
-    await createCity(newCity);
+    if (isEdit) {
+      updateCity(id, newCity);
+    }
+    if (isInput) {
+      createCity(newCity);
+    }
+
+    resetForm();
     navigate("/app/cities");
   }
 
