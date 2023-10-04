@@ -10,15 +10,14 @@ Check out the live demo of the project [here](https://worldwise-krittin-saenpakd
 
 WorldWise helps you track your travels and create a visual record of your adventures. It allows you to add cities to your list and view them on a world map, as well as view information about each city.
 
-It is built using [React.js](https://react.dev/), [React Router](https://reactrouter.com/), [React DatePicker](https://reactdatepicker.com/), [React Leaflet](https://react-leaflet.js.org/), and [BigDataCloud Client Side Reverse Geocoding to City API](https://www.bigdatacloud.com/free-api/free-reverse-geocode-to-city-api).
+It is built using [React.js](https://react.dev/), [React Router](https://reactrouter.com/), [React DatePicker](https://reactdatepicker.com/), [React Leaflet](https://react-leaflet.js.org/), [React Error Boundary](https://www.npmjs.com/package/react-error-boundary), [React Icons](https://react-icons.github.io/react-icons/) and [BigDataCloud Client Side Reverse Geocoding to City API](https://www.bigdatacloud.com/free-api/free-reverse-geocode-to-city-api).
 
-This application is currently in development, but it is already a useful tool for travelers. It is easy to use and has a clean and modern user interface. I am also actively working on a responsive design for mobile users.
-
-Stay tuned for updates!
+This application is currently in development, but it is already a useful tool for travelers. It is easy to use and has a clean and modern user interface.
 
 **Features**
 
 * **Pages:** WorldWise has 5 pages: homepage, pricing, product, login, and app.
+* **Responsive design** WorldWise has a responsive design that adapts to different screen sizes and devices.
 * **Interactive world map:** WorldWise displays a world map with markers for all of the cities that the user has added to their list.
 * **City list:** WorldWise displays a list of all of the cities that the user has added to their list. The list includes the city name, country flag, and date of visit.
 * **City form:** When the user clicks on a city on the map or in the list, WorldWise displays a form with information about the city, including the city name, country flag, date of visit, and notes about the trip.
@@ -30,6 +29,10 @@ Stay tuned for updates!
 * **Tab component:** WorldWise has a tab component that displays a list of cities and correspond countries that user added. This allows users to quickly switch between different views of their list.
 
 ## Screenshots
+![responsive-design](public/screenshots/responsive-design-01.webp)
+
+![responsive-design](public/screenshots/responsive-design-02.webp)
+
 ![homepage](public/screenshots/homepage.webp)
 
 ![pricing-page](public/screenshots/pricing-page.webp)
