@@ -5,24 +5,18 @@
   position: relative;
 }
 
-@media (max-width: 90em) {
-  .mapContainer button{
-    bottom: 76%;
-    left: 85%;
-  }
-}
+.mapContainer button{
+  bottom: unset;
+  left: unset;
 
-@media (max-width: 64em) {
-  .mapContainer button{
-    bottom: 80%;
-    left: 82%;
-  }
+  top: 10rem;
+  right: 5rem;
 }
 
 @media (max-width: 48em) {
-  .mapContainer button {
-    bottom: 75%;
-    left: 50%;
+  .mapContainer button{
+    transform: translateX(50%);
+    right: 50%;
   }
 }
 
