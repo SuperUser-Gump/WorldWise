@@ -14,6 +14,7 @@ import { useGeolocation } from "../../hooks/useGeolocation.js";
 import Button from "./Button.jsx";
 import { useUrlPosition } from "../../hooks/useUrlPosition.js";
 import { useLocalCities } from "../../contexts/LocalCitiesContext.jsx";
+import Sidebar from "./Sidebar.jsx";
 
 function Map() {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ function Map() {
   const { position: geolocationPosition, getPosition } = useGeolocation();
 
   const [mapLat, mapLng] = useUrlPosition();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(
     function () {
@@ -42,37 +44,47 @@ function Map() {
   );
 
   return (
-    <div className={styles.mapContainer}>
-      <Button type="position" onClick={getPosition}>
-        Use your position
-      </Button>
-      <MapContainer
-        center={[mapLat, mapLng]}
-        zoom={6}
-        zoomControl={false}
-        scrollWheelZoom={true}
-        className={styles.map}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
-        />
-        <ZoomControl position="bottomright" />
-        {cities.map((city) => (
-          <Marker
-            position={[city.position.lat, city.position.lng]}
-            key={city.id}
-          >
-            <Popup>
-              <span>{city.emoji}</span> <span>{city.cityName}</span>
-            </Popup>
-          </Marker>
-        ))}
-        <ChangeCenter position={mapPosition} />
-        <DetectClick />
-      </MapContainer>
-      ))
-    </div>
+    <>
+      <Sidebar
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSidebarOpen}
+      />
+      <div className={styles.mapContainer}>
+        <Button type="position" onClick={getPosition}>
+          Use your position
+        </Button>
+        <MapContainer
+          center={[mapLat, mapLng]}
+          zoom={6}
+          zoomControl={false}
+          scrollWheelZoom={true}
+          className={styles.map}
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
+          />
+          <ZoomControl position="bottomright" />
+          {cities.map((city) => (
+            <Marker
+              position={[city.position.lat, city.position.lng]}
+              key={city.id}
+            >
+              <Popup>
+                <span>{city.emoji}</span> <span>{city.cityName}</span>
+              </Popup>
+            </Marker>
+          ))}
+          <ChangeCenter position={mapPosition} />
+          <DetectClick />
+          <ToggleSideBar
+            isSidebarOpen={isSidebarOpen}
+            setIsSidebarOpen={setIsSidebarOpen}
+          />
+        </MapContainer>
+        ))
+      </div>
+    </>
   );
 }
 
@@ -86,8 +98,20 @@ function DetectClick() {
   const navigate = useNavigate();
 
   useMapEvents({
-    click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
+    click: (e) => {
+      navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
+    },
   });
+}
+
+function ToggleSideBar({ isSidebarOpen, setIsSidebarOpen }) {
+  const handleClick = () => setIsSidebarOpen(true);
+
+  useMapEvents({
+    click: handleClick,
+  });
+
+  return null;
 }
 
 export default Map;
