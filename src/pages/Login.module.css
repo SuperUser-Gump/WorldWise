@@ -3,6 +3,8 @@
   padding: 2.5rem 5rem;
   background-color: var(--color-dark--1);
   min-height: calc(100vh - 5rem);
+
+  position: relative;
 }
 
 .form {
@@ -23,4 +25,21 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.form button {
+  width: 100%;
+}
+
+@media (max-width: 64em) {
+  .login {
+    margin: 0;
+    height: 100vh;
+  }
+}
+
+@media (max-width: 48em) {
+  .form {
+    width: 100%;
+  }
 }

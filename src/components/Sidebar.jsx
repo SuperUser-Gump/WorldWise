@@ -4,16 +4,24 @@ import Logo from "./Logo.jsx";
 import AppNav from "./AppNav.jsx";
 import { Outlet } from "react-router-dom";
 import Footer from "./Footer.jsx";
+import { HiXMark } from "react-icons/hi2";
 
-function Sidebar() {
+function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
   return (
-    <div className={styles.sidebar}>
-      <Logo />
-      <AppNav />
-      <Outlet />
-
-      <Footer />
-    </div>
+    <aside className={`${isSidebarOpen ? styles["sidebar-open"] : ""}`}>
+      <div className={styles.sidebar}>
+        <Logo />
+        <AppNav />
+        <Outlet />
+        <Footer />
+        <button
+          className={styles["sidebar-icon"]}
+          onClick={() => setIsSidebarOpen(false)}
+        >
+          <HiXMark />
+        </button>
+      </div>
+    </aside>
   );
 }
 

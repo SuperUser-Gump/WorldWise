@@ -24,6 +24,7 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 body {
@@ -31,6 +32,7 @@ body {
   color: var(--color-light--2);
   font-weight: 400;
   line-height: 1.6;
+  overflow: hidden;
 }
 
 label {
@@ -66,4 +68,16 @@ input:focus {
   font-weight: 600;
   padding: 1rem 3rem;
   border-radius: 5px;
+}
+
+@media (max-width: 64em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media (max-width: 48em) {
+  html {
+    font-size: 50%;
+  }
 }

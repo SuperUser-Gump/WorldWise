@@ -9,6 +9,8 @@
   background-size: cover;
   background-position: center;
   padding: 2.5rem 5rem;
+
+  position: relative;
 }
 
 .homepage section {
@@ -31,4 +33,59 @@
   font-size: 1.9rem;
   color: var(--color-light--1);
   margin-bottom: 2.5rem;
+}
+
+@media (max-width: 64em) {
+  .homepage {
+    margin: 0;
+    height: 100vh;
+  }
+
+  .homepage section {
+    padding: 2.5rem;
+  }
+
+  .homepage h1 {
+    font-size: 3.5rem;
+  }
+
+  .homepage h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 48em) {
+  .homepage h1 {
+    font-size: 2.5rem;
+  }
+
+  .homepage h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 26.5em) {
+  .homepage section {
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 23.5em) {
+  .homepage h1 {
+    font-size: 2rem;
+  }
+
+  .homepage h2 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 20em) {
+  .homepage h1 {
+    font-size: 1.8rem;
+  }
+
+  .homepage h2 {
+    font-size: 1rem;
+  }
 }
