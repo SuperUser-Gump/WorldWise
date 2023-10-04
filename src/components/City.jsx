@@ -57,7 +57,7 @@ function City() {
           Check out {cityName} on Wikipedia &rarr;
         </a>
       </div>
-      <div>
+      <div className={styles.buttons}>
         <Button type="back" onClick={() => navigate(-1)}>
           &larr; Back
         </Button>
