@@ -10,7 +10,7 @@ function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
   return (
     <aside className={`${isSidebarOpen ? styles["sidebar-open"] : ""}`}>
       <div className={styles.sidebar}>
-        <Logo />
+        <Logo className={styles.logo} />
         <AppNav />
         <Outlet />
         <Footer />
