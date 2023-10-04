@@ -1,3 +1,9 @@
 .logo {
   height: 5.2rem;
 }
+
+@media (max-width: 48em) {
+  .logo {
+    display: none;
+  }
+}
