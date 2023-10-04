@@ -23,7 +23,7 @@ function Map() {
   const { position: geolocationPosition, getPosition } = useGeolocation();
 
   const [mapLat, mapLng] = useUrlPosition();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   useEffect(
     function () {
