@@ -1,11 +1,12 @@
 import React from "react";
 import Button from "./Button.jsx";
+import styles from "./ErrorFallback.module.css";
 
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
-    <div style={{ color: "black" }}>
+    <div className={styles.errorFallback}>
       <h1>Something went wrong 😢</h1>
-      <p style={{ marginBottom: "1.6rem" }}>{error.message}</p>
+      <p>{error.message}</p>
       <Button type="primary" onClick={resetErrorBoundary}>
         Try again
       </Button>

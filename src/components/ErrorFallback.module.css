@@ -1,0 +1,13 @@
+.errorFallback {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 2rem;
+    color: black;
+}
+
+.errorFallback p {
+    margin-bottom: 1.6rem;
+}
