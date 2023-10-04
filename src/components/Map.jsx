@@ -99,7 +99,7 @@ function DetectClick() {
 
   useMapEvents({
     click: (e) => {
-      navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
+      navigate(`form?mode=input&lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
     },
   });
 }

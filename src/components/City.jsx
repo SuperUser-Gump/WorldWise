@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import styles from "./City.module.css";
 import Button from "./Button.jsx";
 import { useLocalCities } from "../../contexts/LocalCitiesContext.jsx";
+import Flag from "./Flag.jsx";
+import { useUrlPosition } from "../../hooks/useUrlPosition.js";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -16,6 +18,7 @@ function City() {
   const { id } = useParams();
   const { getCity, currentCity } = useLocalCities();
   const navigate = useNavigate();
+  const [lat, lng] = useUrlPosition();
 
   useEffect(
     function () {
@@ -24,14 +27,17 @@ function City() {
     [id, getCity]
   );
 
-  const { cityName, emoji, date, notes } = currentCity;
+  const { cityName, countryCode, date, notes } = currentCity;
 
   return (
     <div className={styles.city}>
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
-          <span>{emoji}</span> {cityName}
+          <span>
+            <Flag countryCode={countryCode} />
+          </span>
+          {cityName}
         </h3>
       </div>
 
@@ -60,6 +66,14 @@ function City() {
       <div className={styles.buttons}>
         <Button type="back" onClick={() => navigate(-1)}>
           &larr; Back
+        </Button>
+        <Button
+          type="primary"
+          onClick={() =>
+            navigate(`/app/form?mode=edit&id=${id}&lat=${lat}&lng=${lng}`)
+          }
+        >
+          Edit
         </Button>
       </div>
     </div>
