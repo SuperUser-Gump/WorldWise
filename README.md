@@ -21,33 +21,30 @@ This application is currently in development, but it is already a useful tool fo
 * **Interactive world map:** WorldWise displays a world map with markers for all of the cities that the user has added to their list.
 * **City list:** WorldWise displays a list of all of the cities that the user has added to their list. The list includes the city name, country flag, and date of visit.
 * **City form:** When the user clicks on a city on the map or in the list, WorldWise displays a form with information about the city, including the city name, country flag, date of visit, and notes about the trip.
-* **Add city:** The user can add a city to their list by filling out the city form and clicking the "Add" button. A marker will then appear on the map for the new city.
+* **Add city:** The user can add a city to their list by filling out the city form and clicking the "ADD" button. A marker will then appear on the map for the new city.
 * **Remove city:** The user can remove a city from their list by clicking the "&times;" button next to the city in the list. The marker for the city will then be removed from the map.
+* **Edit and update city** The user can edit and update the information for existing cities in the list. To do this, simply click on the city in the list and then click the "EDIT" button.
 * **Current user geolocation:** The user can click the "USE YOUR POSITION" button to navigate the map to their current user's geolocation.
 * **Local storage:** The list of cities is persisted in local storage, so that the user's list is preserved even if they close the browser or navigate to a different page.
 * **Login and logout functionality:** WorldWise allows users to log in and out of their accounts.
 * **Tab component:** WorldWise has a tab component that displays a list of cities and correspond countries that user added. This allows users to quickly switch between different views of their list.
 
 ## Screenshots
-![responsive-design](public/screenshots/responsive-design-01.webp)
-
-![responsive-design](public/screenshots/responsive-design-02.webp)
-
-![homepage](public/screenshots/homepage.webp)
-
+![responsive-design](public/screenshots/responsive-design.webp)
+![home-page](public/screenshots/home-page.webp)
 ![pricing-page](public/screenshots/pricing-page.webp)
-
 ![product-page](public/screenshots/product-page.webp)
-
 ![login-page](public/screenshots/login-page.webp)
-
 ![app-page](public/screenshots/app-page.webp)
-
 ![add-city](public/screenshots/add-city.webp)
-
-![city-list](public/screenshots/city-list.webp)
-
-![country-list](public/screenshots/country-list.webp)
+![display-cities](public/screenshots/display-cities.webp)
+![display-countries](public/screenshots/display-countries.webp)
+![city-detail](public/screenshots/city-detail.webp)
+![fullscreen-map](public/screenshots/fullscreen-map.webp)
+![mobile-01](public/screenshots/mobile-01.webp)
+![mobile-02](public/screenshots/mobile-02.webp)
+![mobile-03](public/screenshots/mobile-03.webp)
+![mobile-04](public/screenshots/mobile-04.webp)
 
 ## Getting Started
 
@@ -92,8 +89,8 @@ WorldWise is a web application that helps you track your travels and create a vi
 
 * Click on the position on the map where you want to add a city.
 * The city form will be displayed automatically.
-* You can fill out the city form, including the city name, country flag, date of visit, and notes about your trip. Alternatively, you can click on the "Add City" button without filling out the form to simply add a marker to the map.
-* Click the "Add" button.
+* You can fill out the city form, including the city name, country flag, date of visit, and notes about your trip. Alternatively, you can click on the "ADD" button without filling out the form to simply add a marker to the map.
+* Click the "ADD" button.
 
 A marker will then appear on the map for the new city.
 
@@ -101,6 +98,13 @@ A marker will then appear on the map for the new city.
 
 * Click on the "&times;" button next to the city in the list.
 * The marker for the city will then be removed from the map.
+
+**To edit or update information for a city:**
+
+* Click on the city in the list or on the map.
+* The city form will be displayed with information about the city, including the city name, country flag, date of visit, and notes about your trip.
+* Make the desired changes to the form.
+* Click the "UPDATE" button.
 
 **To view information about a city:**
 
