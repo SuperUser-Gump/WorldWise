@@ -163,7 +163,11 @@ function Form() {
       </div>
 
       <div className={styles.buttons}>
-        <Button type="primary">Add</Button>
+        {isInput ? (
+          <Button type="primary">Add</Button>
+        ) : (
+          <Button type="primary">Update</Button>
+        )}
         <BackButton />
       </div>
     </form>
