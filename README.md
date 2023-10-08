@@ -91,8 +91,7 @@ WorldWise is a web application that helps you track your travels and create a vi
 * The city form will be displayed automatically.
 * You can fill out the city form, including the city name, country flag, date of visit, and notes about your trip. Alternatively, you can click on the "ADD" button without filling out the form to simply add a marker to the map.
 * Click the "ADD" button.
-
-A marker will then appear on the map for the new city.
+* A marker will then appear on the map for the new city.
 
 **To remove a city from your list:**
 
